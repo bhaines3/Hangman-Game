@@ -1,105 +1,59 @@
-<html class="no-js"> 
+<html> 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">             
-        <link rel ="stylesheet" type="text/css" href="css\style.css">
+        <link rel ="stylesheet" type="text/css" href="assets\css\style.css">
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
         <meta charset="utf-8">
         <title>Brandon's Hangman Game</title>        
     </head>
-    <body>
-        <nav class="navbar navbar-light bg-light justify-content-between">
-            <a class="navbar-brand p-3 bg-info text-white">Brandon Haines</a>
-            
-            <ul class="nav justify-content-right">
-                    <li class="nav-item">
-                      <a class="nav-link about text-secondary" href="index.html">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link contact text-secondary" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link portfolio text-secondary" href="portfolio.html">Portfolio</a>
-                    </li>
-            </ul>
-        </nav>
-
-        <div class="container"> 
-
-        
-
-            <div class="row">
-                <div class="col-lg-8">
+    <body>   
+    
+        <div class="container">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-12">
                     <div class="card mt-4">
-                        <div class="card-header">
-                            <h2 class="card-title text-info">About Me</h2>
+                        <div class="card-header text-center">
+                            <h1 class="card-title">Animal Hangman</h1>
+                            <p class="card-subtitle">Copyright 2017 Brandon Haines</p>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-xl-3 col-lg-6 col-md-8 col-sm-12">
-                                    <img class="img-fluid" src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/15826232_10210835353853667_2107769638356608314_n.jpg?oh=7e1e74739d11ca140fb33b97c4c599d8&oe=5A691E4C" alt="My Nephew and I"/>
+                                <div class="col-6">
+                                    <img class="img-fluid" src="assets/images/animals.jpg" alt="Animals Picture"/>
                                 </div>
-                                <div class="col-xl-9 col-lg-6 col-md-4 col-sm-12">
-                                    <p>My name's Brandon and I am a regular 26 year old trying to figure out how to become a programmer! I graduated from The University of Arizona with a Bachelors in Marketing and I am currently working in the marketing field for my parents business. I hope to one day, after learning how to code, focus on the technical side of marketing.</p>
-                                    <p>I grew up traveling quite a bit as my father is a pilot. I have lived in Indonesia and Papua New Guinea and visited many unique and interesting places in my lifetime. I love to play and watch sports as well as play video games in my free time. I love my family, especially my little nephew pictured above! I am excited to pursue a career in web development and put the skills I have learned in this program to good use!</p>
+                                <div class="col-6">
+                                    <div class="row text-center">
+                                        <h2>Try to guess the animal!</h2> 
+                                    </div>
+                                    <div class="row text-center">
+                                        <p id"presskey">Press any key to get started!</p>
+                                    </div>
+                                    <div class="row text-center">
+                                        <p id="wins">Wins</p>
+                                    </div>
+                                    <div class="row text-center">
+                                        <p id="currentword">Current Word</p>
+                                    </div>
+                                    <div class="row text-center">
+                                        <p id="guessesrem">Guesses Remaining</p>
+                                    </div>
+                                    <div class="row text-center">
+                                        <p id="lettersguessed">Letters Guessed</p>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
-
-                    <div class="col-lg-4">
-                            <span class="border">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title text-center text-info">Connect with Me</h3>
-                                    </div>
-                                    <div class="card-body">
-    
-                                        <div class="row">
-                                        
-                                            <div class="col-4 p-3">
-                                                <a href="https://www.linkedin.com/in/brandon-haines-367b1a39/">
-                                                <img src="http://psiint.com/wp-content/uploads/2017/03/linkedin-logo-copy.png" class="center-block" alt="LinkedIn";>
-                                                </a>
-                                            </div>
-                                            <div class="col-4 p-3">
-                                                <a href="https://github.com/bhaines3">
-                                                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/github_square_black-128.png" class="center-block" alt="Github";>
-                                                </a>
-                                            </div>
-                                            <div class="col-4 p-3">
-                                                <a href="https://stackexchange.com/users/11517928/brandon-haines">
-                                                <img src="https://cdn4.iconfinder.com/data/icons/miu-square-flat-social/60/stackoverflow-square-social-media-128.png" class="center-block" alt="Stackoverflow";>
-                                                </a>
-                                            </div>
-                                        </div>
-                                  
-                                    </div>
-                                </div>  
-                            </span>        
-                        </div>
-                         
-                        </div>
-                      </div>  
-                      </span>      
-                </div>
-
-                           
-            </div>  
-
-            <div class="row">
-                    <footer class="myfooter"> 
-                            <div class="container">
-        
-                                <nav class="navbar fixed-bottom navbar-light bg-secondary">
-                                    <span class="navbar-brand text-white mx-auto">© Copyright 2017 Brandon Haines</span>
-                        
-                                </nav>
-                            </div>
-                    </footer>
             </div>
-            
-        </div>
         
+               <button id="reset">Play again</button>
+             
+        </div>
+    
     </body>
 </html>
+         
