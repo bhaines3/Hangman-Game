@@ -1,14 +1,14 @@
-<html> 
+<html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">             
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel ="stylesheet" type="text/css" href="assets\css\style.css">
         <script type="text/javascript" src="assets/javascript/game.js"></script>
         <meta charset="utf-8">
-        <title>Brandon's Hangman Game</title>        
+        <title>Brandon's Hangman Game</title>
     </head>
-    <body>   
-    
+    <body>
+
         <div class="container">
             <div class="wrapper">
                 <div class="row">
@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="row text-center">
-                                        <h2>Try to guess the animal!</h2> 
+                                        <h2 id="status">Try to guess the animal!</h2>
                                     </div>
                                     <div class="row text-center">
                                         <p id"presskey">Press any key to get started!</p>
@@ -34,26 +34,25 @@
                                         <p id="wins">Wins</p>
                                     </div>
                                     <div class="row text-center">
-                                        <p id="currentword">Current Word</p>
+                                        <p id="currentword">Current Word:</p>
                                     </div>
                                     <div class="row text-center">
                                         <p id="guessesrem">Guesses Remaining</p>
                                     </div>
                                     <div class="row text-center">
-                                        <p id="lettersguessed">Letters Guessed</p>
+                                        <p id="lettersguessed">Letters Guessed:</p>
+                                    </div>
+                                    <div class="row text-center">
+                                      <button id="reset">Play again</button>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
             </div>
-        
-               <button id="reset">Play again</button>
-             
         </div>
-    
     </body>
 </html>
+
          

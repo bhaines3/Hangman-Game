@@ -1,113 +1,113 @@
 window.onload = function () {
-    
-      
-      var animals;         // Animals
-      var getHint ;          // Word getHint
-      var word ;              // Selected word
-      var guess ;             // Geuss
-      var guesses = [ ];      // Stored guesses
-      var lives ;             // Lives
-      var counter ;           // Count correct guesses
-      var space;              // Number of spaces in word '-'
-    
-      // Get elements
-      var showLives = document.getElementById("guessesrem");
-      
+  var animals;         // Animals
+  var word;              // Selected word
+  var guess;             // Geuss
+  var guesses = [];      // Stored guesses
+  var guessesRem;             // Lives
+  var wins = 0;           // Count correct guesses
+  var space;              // Number of spaces in word '-'
+
+  // Get elements
+  var guessesRemDOM = document.getElementById("guessesrem");
+  var winsDOM = document.getElementById("wins");
+  var currentWordDOM = document.getElementById("currentword");
+  var lettersGuessedDOM = document.getElementById("lettersguessed");
+  var statusDOM = document.getElementById('status');
 
 
-      // create onkeyup function for guessing letters
+  // create onkeyup function for guessing letters
 
-        
-    
-      // Create guesses ul
-       result = function () {
-        wordHolder = document.getElementById('hold');
-        correct = document.createElement('ul');
-    
-        for (var i = 0; i < word.length; i++) {
-          correct.setAttribute('id', 'my-word');
-          guess = document.createElement('li');
-          guess.setAttribute('class', 'guess');
-          if (word[i] === "-") {
-            guess.innerHTML = "-";
-            space = 1;
-          } else {
-            guess.innerHTML = "_";
-          }
-    
-          guesses.push(guess);
-          wordHolder.appendChild(correct);
-          correct.appendChild(guess);
-        }
-      }
-      
-    // Show lives
-       comments = function () {
-        showLives.innerHTML = "You have " + lives + " lives left";
-        if (lives < 1) {
-          showLives.innerHTML = "Game Over";
-        }
-        for (var i = 0; i < guesses.length; i++) {
-          if (counter + space === geusses.length) {
-            showLives.innerHTML = "You Win!";
-          }
-        }
-      }
-    
-    // OnClick Function
-       check = function () {
-        list.onclick = function () {
-          var geuss = (this.innerHTML);
-          this.setAttribute("class", "active");
-          this.onclick = null;
-          for (var i = 0; i < word.length; i++) {
-            if (word[i] === guess) {
-              guesses[i].innerHTML = guess;
-              counter += 1;
-            } 
-          }
-          var j = (word.indexOf(guess));
-          if (j === -1) {
-            lives -= 1;
-            comments();
-            animate();
-          } else {
-            comments();
-          }
-        }
-      }
-      
-        
-    // Play
-      play = function () {
-        animals = [
-            ["jaguar", "elephant", "monkey", "sloth", "tucan", "tiger", "giraffe"],
-            ["bear", "eagle", "walrus", "wolf", "shark"],
-            ["kangaroo", "snake", "horse", "antelope", "flamingo"]
-        ];
-    
-        word = animals[Math.floor(Math.random() * animals.length)];
-        word = word.replace(/\s/g, "-");
-        console.log(word);
-        buttons();
-    
-        guesses = [ ];
-        lives = 10;
-        counter = 0;
-        space = 0;
-        result();
-        comments();
-        selectCat();
-      }
-    
-      play();
-      
-    // Reset
-    
-      document.getElementById("reset").onclick = function() {
-        correct.parentNode.removeChild(correct);
-        letters.parentNode.removeChild(letters);
-        play();
+  // Create guesses ul
+   function genUnderScores () {
+    for (var i = 0; i < word.length; i++) {
+      //make a blank
+      var blank = "_"
+      //push that blank into the space array
+      space.push(blank)
+    }
+    console.log(space);
+    //join that array and make it a string
+      var joinedSpaces = space.join(' ')
+    //show that string on the DOM
+    currentWordDOM.innerHTML = "Current Word: " + "<strong>" + joinedSpaces + "</strong>";
+  }
+
+// Show guessesRem
+function comments() {
+    showLives.innerHTML = "You have " + guessesRem + " guessesRem left";
+    if (guessesRem < 1) {
+      showLives.innerHTML = "Game Over";
+    }
+    for (var i = 0; i < guesses.length; i++) {
+      if (counter + space === geusses.length) {
+        showLives.innerHTML = "You Win!";
       }
     }
+  }
+// Play
+  play = function () {
+    animals = [
+        "jaguar", "elephant", "monkey", "sloth", "tucan", "tiger", "giraffe",
+        "bear", "eagle", "walrus", "wolf", "shark",
+        "kangaroo", "snake", "horse", "antelope", "flamingo"
+      ];
+    word = animals[Math.floor(Math.random() * animals.length)];
+    console.log(word);
+    guesses = [];
+    guessesRem = 10;
+    guessesRemDOM.innerHTML = "Guesses Remaining: " + guessesRem;
+    space = [];
+    statusDOM.innerHTML = "Try to guess the animal!"
+    lettersGuessedDOM.innerHTML = "Letters Guessed: " + guesses.join(" ");
+    genUnderScores();
+  }
+
+  play();
+
+// Reset
+
+  document.getElementById("reset").onclick = function() {
+    document.getElementById('reset').style.display = "none"
+    play();
+  }
+  document.addEventListener("keyup", function(event){
+    console.log(event.key);
+    var userGuess = event.key;
+    for (var i = 0; i < word.length; i++) {
+      if (word[i] === userGuess) {
+        //replace index of space array were letter should be
+        space[i] = userGuess;
+        var joinedSpaces = space.join(' ');
+        //show that string on the DOM
+        currentWordDOM.innerHTML = "Current Word: " + "<strong>" + joinedSpaces + "</strong>";
+      }
+    }
+    if (word.indexOf(userGuess) == -1) {
+      var joinedGuesses = guesses.join("")
+      if (joinedGuesses.indexOf(userGuess) == -1) {
+        guesses.push(userGuess);
+        lettersGuessedDOM.innerHTML = "Letters Guessed: " + guesses.join(" ");
+        guessesRem--;
+        if (guessesRem >= 0) {
+          guessesRemDOM.innerHTML = "Guesses Remaining: " + guessesRem;
+        }else {
+          console.log("you loose");
+          statusDOM.innerHTML = "YOU LOOSE!! BETTER LUCK NEXT TIME!"
+          showBtn();
+        }
+      }
+    }
+    if (space.join('') == word) {
+      console.log("you won");
+      wins++;
+      winsDOM.innerHTML = "Wins: " + wins;
+      statusDOM.innerHTML = "CONGRATS YOU WIN!!!!"
+      setTimeout(play, 4000);
+    }
+  })
+
+  function showBtn() {
+    document.getElementById('reset').style.display = "block";
+  }
+}
     
