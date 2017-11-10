@@ -38,11 +38,11 @@ function comments() {
     if (guessesRem < 1) {
       showLives.innerHTML = "Game Over";
     }
-    for (var i = 0; i < guesses.length; i++) {
-      if (counter + space === geusses.length) {
-        showLives.innerHTML = "You Win!";
-      }
-    }
+    // for (var i = 0; i < guesses.length; i++) {
+    //   if (counter + space === geusses.length) {
+    //     showLives.innerHTML = "You Win!";
+    //   }
+    // }
   }
 // Play
   play = function () {
