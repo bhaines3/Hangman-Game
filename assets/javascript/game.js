@@ -4,7 +4,7 @@ window.onload = function () {
   var word;              // Selected word
   var guess;             // Geuss
   var guesses = [];      // Stored guesses
-  var guessesRem;             // Lives
+  var guessesRem;             // Guesses Remaining
   var wins = 0;           // Count correct guesses
   var space;              // Number of spaces in word '-'
 
@@ -31,13 +31,6 @@ window.onload = function () {
     //show that string on the DOM
     currentWordDOM.innerHTML = "Current Word: " + "<strong>" + joinedSpaces + "</strong>";
   }
-
-// Show guessesRem
-// function comments() {
-//     showLives.innerHTML = "You have " + guessesRem + " guessesRem left";
-//     if (guessesRem < 1) {
-//       showLives.innerHTML = "Game Over";
-//     }
   
 // word array    
 animals = [
