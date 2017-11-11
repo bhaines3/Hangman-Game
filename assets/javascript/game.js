@@ -1,4 +1,5 @@
 window.onload = function () {
+
   var animals;         // Animals
   var word;              // Selected word
   var guess;             // Geuss
@@ -12,12 +13,11 @@ window.onload = function () {
   var winsDOM = document.getElementById("wins");
   var currentWordDOM = document.getElementById("currentword");
   var lettersGuessedDOM = document.getElementById("lettersguessed");
-  var statusDOM = document.getElementById('status');
+  var statusDOM = document.getElementById("status");
 
 
-  // create onkeyup function for guessing letters
 
-  // Create guesses ul
+  // Create word length
    function genUnderScores () {
     for (var i = 0; i < word.length; i++) {
       //make a blank
@@ -33,24 +33,22 @@ window.onload = function () {
   }
 
 // Show guessesRem
-function comments() {
-    showLives.innerHTML = "You have " + guessesRem + " guessesRem left";
-    if (guessesRem < 1) {
-      showLives.innerHTML = "Game Over";
-    }
-    // for (var i = 0; i < guesses.length; i++) {
-    //   if (counter + space === geusses.length) {
-    //     showLives.innerHTML = "You Win!";
-    //   }
-    // }
-  }
-// Play
-  play = function () {
-    animals = [
+// function comments() {
+//     showLives.innerHTML = "You have " + guessesRem + " guessesRem left";
+//     if (guessesRem < 1) {
+//       showLives.innerHTML = "Game Over";
+//     }
+  
+// word array    
+animals = [
         "jaguar", "elephant", "monkey", "sloth", "tucan", "tiger", "giraffe",
         "bear", "eagle", "walrus", "wolf", "shark",
         "kangaroo", "snake", "horse", "antelope", "flamingo"
       ];
+
+// Play      
+  play = function () {
+
     word = animals[Math.floor(Math.random() * animals.length)];
     console.log(word);
     guesses = [];
@@ -64,15 +62,15 @@ function comments() {
 
   play();
 
-// Reset
+// Reset/play again
 
   document.getElementById("reset").onclick = function() {
-    document.getElementById('reset').style.display = "none"
+    document.getElementById("reset").style.display = "none"
     play();
   }
-  document.addEventListener("keyup", function(event){
-    console.log(event.key);
+  document.addEventListener("keyup", function(event) {
     var userGuess = event.key;
+    console.log(event.key);
     for (var i = 0; i < word.length; i++) {
       if (word[i] === userGuess) {
         //replace index of space array were letter should be
@@ -101,13 +99,16 @@ function comments() {
       console.log("you won");
       wins++;
       winsDOM.innerHTML = "Wins: " + wins;
-      statusDOM.innerHTML = "CONGRATS YOU WIN!!!!"
-      setTimeout(play, 4000);
+      statusDOM.innerHTML = "CONGRATS YOU WIN!!!!";
+        newFunction();
     }
   })
 
   function showBtn() {
-    document.getElementById('reset').style.display = "block";
+    document.getElementById("reset").style.display = "block";
   }
 }
+  function newFunction() {
+    setTimeout(play, 4000);
+  }
     
